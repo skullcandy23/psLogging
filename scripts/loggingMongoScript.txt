@@ -1,0 +1,4 @@
+
+use logging
+
+ db.logs.insert({"id": "1","host": "host", "source": "app name","eventName": "Health Check","severity": "info","time": "2020-10-01 10:00:00", "transactionId": "ff55a400-cd3a-11a8-9a22-06be2c1ae4a4", "sourceSystem": "John","targetSystem": "DCR","metas": "status:p('healthCheck.message')"}) 
