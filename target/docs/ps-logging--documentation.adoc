@@ -43,8 +43,10 @@ Default configuration
 [cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
 |======================
 | Name | Type | Description | Default Value | Required
-| Required Parameter a| String |  |  | *x*{nbsp}
-| Friendly Name a| Number |  |  +++100+++ | {nbsp}
+| Service Host a| String |  |  | *x*{nbsp}
+| Service Port a| String |  |  | *x*{nbsp}
+| Username a| String |  |  | *x*{nbsp}
+| Password a| String |  |  | *x*{nbsp}
 | Reconnection a| <<Reconnection>> |  +++When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment will fail if the test doesn't pass after exhausting the associated reconnection strategy+++ |  | {nbsp}
 | Pooling Profile a| <<PoolingProfile>> |  +++Characteristics of the connection pool+++ |  | {nbsp}
 |======================
@@ -90,19 +92,50 @@ Example of an operation that uses the configuration and a connection instance to
 * PS-LOGGING:CONNECTIVITY {nbsp}
 
 
-[[sayHi]]
-=== Say Hi
-`<ps-logging:say-hi>`
+[[getLogs]]
+=== Get Logs
+`<ps-logging:get-logs>`
+
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| <<Logs>>
+|======================
+
+
+
+
+[[log]]
+=== Log
+`<ps-logging:log>`
 
 +++
-Example of a simple operation that receives a string parameter and returns a new string message that will be set on the payload.
+Private Methods are not exposed as operations
 +++
 
 ==== Parameters
 [cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
 |======================
 | Name | Type | Description | Default Value | Required
-| Person a| String |  |  | *x*{nbsp}
+| Id a| Number |  |  | *x*{nbsp}
+| Host a| String |  |  | *x*{nbsp}
+| Source a| String |  |  | *x*{nbsp}
+| Event_name a| String |  |  | *x*{nbsp}
+| Severity a| String |  |  | *x*{nbsp}
+| Time a| String |  |  | *x*{nbsp}
+| Transaction_id a| String |  |  | *x*{nbsp}
+| Source_system a| String |  |  | *x*{nbsp}
+| Target_system a| String |  |  | *x*{nbsp}
+| Metas a| String |  |  | *x*{nbsp}
 | Output Mime Type a| String |  +++The mime type of the payload that this operation outputs.+++ |  | {nbsp}
 | Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
 | Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
@@ -189,5 +222,23 @@ Example of a simple operation that receives a string parameter and returns a new
 ** MINUTES
 ** HOURS
 ** DAYS | A time unit that qualifies the maxIdleTime attribute |  | 
+|======================
+
+[[Logs]]
+=== Logs
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Event_name a| String |  |  | 
+| Host a| String |  |  | 
+| Id a| Number |  |  | 
+| Metas a| String |  |  | 
+| Severity a| String |  |  | 
+| Source a| String |  |  | 
+| Source_system a| String |  |  | 
+| Target_system a| String |  |  | 
+| Time a| String |  |  | 
+| Transaction_id a| String |  |  | 
 |======================
 

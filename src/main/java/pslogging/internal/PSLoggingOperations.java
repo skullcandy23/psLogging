@@ -29,21 +29,36 @@ public class PSLoggingOperations {
    */
   @MediaType(value = ANY, strict = false)
   public String retrieveInfo(@Config PSLoggingConfiguration configuration, @Connection PSLoggingConnection connection){
-    return "Using Configuration [" + configuration.getConfigId() + "] with Connection id [" + connection.getHost() + "]";
+    return "Using Configuration [" + configuration.getConfigId() + "] with Connection Host [" + connection.getHost() + "]";
   }
 
   /**
    * Example of a simple operation that receives a string parameter and returns a new string message that will be set on the payload.
    */
-  @MediaType(value = ANY, strict = false)
-  public String sayHi(String person) {
-    return buildHelloMessage(person);
-  }
+//  @MediaType(value = ANY, strict = false)
+//  public String sayHi(String person) {
+//    return buildHelloMessage(person);
+//  }
 
   /**
    * Private Methods are not exposed as operations
    */
-  private String buildHelloMessage(String person) {
-    return "Hello " + person + "!!!";
-  }
+//  private String buildHelloMessage(String person) {
+//    return "Hello " + person + "!!!";
+//  }
+  
+  	@MediaType(value = ANY, strict = false)
+  	public String log(int id, String host, String source, String event_name, String severity, String time, String transaction_id, String source_system, String target_system, String metas) {
+  		return buildLogMessage(id, host, source, event_name, severity, 
+  			time, transaction_id, source_system, target_system, metas);
+  	}
+  
+  	private String buildLogMessage(int id, String host, String source, String event_name, String severity, 
+  			String time, String transaction_id, String source_system, String target_system, String metas) {
+  		return "ID: " + id + " Host: " + host + " Source: " + source + " Event Name: " +  event_name 
+  				+ " Severity: " + severity + " Time: " + time + " Transactiond Id: " + transaction_id + 
+  				" Source System: " + source_system + " Target System: " + target_system + " Metas: " + metas;
+  	}
+  
+  	
 }

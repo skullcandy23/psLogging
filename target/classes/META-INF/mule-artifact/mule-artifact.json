@@ -2,8 +2,8 @@
   "extensionModelLoaderDescriptor": {
     "id": "java",
     "attributes": {
-      "type": "pslogging.internal.PsloggingExtension",
-      "version": "4.1.1"
+      "type": "pslogging.internal.PSLoggingExtension",
+      "version": "1.0.0-SNAPSHOT"
     }
   },
   "name": "Ps-logging-",
@@ -13,12 +13,15 @@
     "attributes": {
       "privilegedExportedPackages": [],
       "privilegedArtifactIds": [],
-      "exportedPackages": [],
+      "exportedPackages": [
+        "pslogging.internal.beans"
+      ],
       "exportedResources": []
     }
   },
   "bundleDescriptorLoader": {
     "id": "mule",
     "attributes": {}
-  }
+  },
+  "minMuleVersion": "4.1.1"
 }

@@ -17,10 +17,16 @@
         <connection name="connection">
             <description><![CDATA[]]></description>
             <parameters>
-                <parameter name="requiredParameter">
+                <parameter name="host">
                     <description><![CDATA[]]></description>
                 </parameter>
-                <parameter name="optionalParameter">
+                <parameter name="port">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="user">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="password">
                     <description><![CDATA[]]></description>
                 </parameter>
                 <parameter name="reconnection">
@@ -54,10 +60,48 @@
                 </parameter>
             </parameters>
         </operation>
-        <operation name="sayHi">
-            <description><![CDATA[Example of a simple operation that receives a string parameter and returns a new string message that will be set on the payload.]]></description>
+        <operation name="getLogs">
+            <description><![CDATA[]]></description>
             <parameters>
-                <parameter name="person">
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="log">
+            <description><![CDATA[Private Methods are not exposed as operations]]></description>
+            <parameters>
+                <parameter name="id">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="host">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="source">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="event_name">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="severity">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="time">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="transaction_id">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="source_system">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target_system">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="metas">
                     <description><![CDATA[]]></description>
                 </parameter>
                 <parameter name="outputMimeType">
@@ -73,5 +117,41 @@
         </operation>
     </operations>
     <sources/>
-    <types/>
+    <types>
+        <type name="pslogging.internal.beans.Logs">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="event_name">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="host">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="id">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="metas">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="severity">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="source">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="source_system">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target_system">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="time">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="transaction_id">
+                    <description><![CDATA[]]></description>
+                </parameter>
+            </parameters>
+        </type>
+    </types>
 </extension-documentation>
