@@ -14,6 +14,7 @@
       "privilegedExportedPackages": [],
       "privilegedArtifactIds": [],
       "exportedPackages": [
+        "pslogging.internal.utils",
         "pslogging.internal.beans"
       ],
       "exportedResources": []

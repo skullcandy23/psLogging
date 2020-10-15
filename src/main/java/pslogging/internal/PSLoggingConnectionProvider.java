@@ -73,9 +73,103 @@ public class PSLoggingConnectionProvider implements PoolingConnectionProvider<PS
   @Parameter
   private String password;
   
+  @DisplayName("Database")
+  @Parameter
+  private String database;
+  
+  
+//  @DisplayName("Service Host")
+//  @Parameter
+//  private String host_mysql;
+//  
+//  @DisplayName("Service Port")
+//  @Parameter
+//  private String port_mysql;
+//  
+//  @DisplayName("Username")
+//  @Parameter
+//  private String user_mysql;
+//  
+//  @DisplayName("Password")
+//  @Parameter
+//  private String password_mysql;
+//  
+//  @DisplayName("Database")
+//  @Parameter
+//  private String database_mysql;
+  
+//  @DisplayName("Service Host")
+//  @Parameter
+//  private String host_mongo;
+//  
+//  @DisplayName("Service Port")
+//  @Parameter
+//  private String port_mongo;
+//  
+//  @DisplayName("Username")
+//  @Parameter
+//  private String user_mongo;
+//  
+//  @DisplayName("Password")
+//  @Parameter
+//  private String password_mongo;
+//  
+//  @DisplayName("Database")
+//  @Parameter
+//  private String collection_mongo;
+  
+//  @Override
+//  public PSLoggingConnection connect() throws ConnectionException {
+//	  return new PSLoggingConnection(host_mysql, port_mysql, user_mysql, password_mysql, database_mysql, host_mongo, port_mongo, user_mongo, password_mongo, collection_mongo);
+//  }
+  
+  public String getHost() {
+	return host;
+  }
+
+	public void setHost(String host) {
+		this.host = host;
+	}
+	
+	public String getPort() {
+		return port;
+	}
+	
+	public void setPort(String port) {
+		this.port = port;
+	}
+	
+	public String getUser() {
+		return user;
+	}
+	
+	public void setUser(String user) {
+		this.user = user;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public String getDatabase() {
+		return database;
+	}
+	
+	public void setDatabase(String database) {
+		this.database = database;
+	}
+	
+	public Logger getLOGGER() {
+		return LOGGER;
+	}
+
   @Override
   public PSLoggingConnection connect() throws ConnectionException {
-	  return new PSLoggingConnection(host, port, user, password);
+	  return new PSLoggingConnection(host, port, user, password, database);
   }
   
   @Override

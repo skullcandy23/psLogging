@@ -16,15 +16,19 @@ public class Logs {
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getHost() {
 		return host;
 	}
+	
 	public void setHost(String host) {
 		this.host = host;
 	}
+	
 	public String getSource() {
 		return source;
 	}
