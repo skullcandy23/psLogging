@@ -3,7 +3,7 @@
     "id": "java",
     "attributes": {
       "type": "pslogging.internal.PSLoggingExtension",
-      "version": "1.0.0-SNAPSHOT"
+      "version": "1.0.8"
     }
   },
   "name": "Ps-logging-",

@@ -9,6 +9,7 @@ import org.mule.runtime.extension.api.annotation.param.Connection;
 //import pslogging.internal.beans.Logs;
 import pslogging.internal.beans.*;
 import pslogging.internal.insert.MySQL;
+import pslogging.internal.insert.TEST;
 
 
 /**
@@ -18,17 +19,30 @@ public class PSLoggingOperations {
 
   public Logs logs;
   
-  public MySQL mysql;
+//  public MySQL mysql;
 
-  
+  MySQL my = new MySQL();
   
 //  @MediaType(value = ANY, strict = false)
 //  public Logs getLogs() {
 //	return null;
 //	  
 //  }
-  
-  /**
+  public static void main(String[] args) {
+		PSLoggingOperations test = new PSLoggingOperations();
+		
+		test.testing();
+
+	}
+ 
+
+private void testing() {
+	my.insertLogs();
+	
+}
+
+
+/**
    * Example of an operation that uses the configuration and a connection instance to perform some action.
    */
   @MediaType(value = ANY, strict = false)
@@ -52,8 +66,8 @@ public class PSLoggingOperations {
 //  }
 
   	@MediaType(value = ANY, strict = false)
-  	public String retrieveLog(Logs logs) {
-  		mysql.insertLogs();
+  	public String logging(@Config PSLoggingConfiguration configuration, @Connection PSLoggingConnection connection, Logs logs) {
+  		my.insertLogs();
   		return "ID: " + logs.getId() + " Host: " + logs.getHost() + " Source: " + logs.getSource() + " Event Name: " +  logs.getEvent_name() 
   				+ " Severity: " + logs.getSeverity() + " Time: " + logs.getTime() + " Transactiond Id: " + logs.getTransaction_id() + 
   				" Source System: " + logs.getSource_system() + " Target System: " + logs.getTarget_system() + " Metas: " + logs.getMetas(); 
