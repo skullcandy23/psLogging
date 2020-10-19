@@ -58,7 +58,6 @@ Default configuration
 
 ==== Associated Operations
 * <<logging>> {nbsp}
-* <<retrieveInfo>> {nbsp}
 
 
 
@@ -69,41 +68,6 @@ Default configuration
 `<ps-logging:logging>`
 
 +++
-Private Methods are not exposed as operations
-+++
-
-==== Parameters
-[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
-|======================
-| Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
-| Logs a| <<Logs>> |  |  | *x*{nbsp}
-| Output Mime Type a| String |  +++The mime type of the payload that this operation outputs.+++ |  | {nbsp}
-| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
-| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
-| Reconnection Strategy a| * <<reconnect>>
-* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
-|======================
-
-==== Output
-[cols=".^50%,.^50%"]
-|======================
-| *Type* a| String
-|======================
-
-==== For Configurations.
-* <<config>> {nbsp}
-
-==== Throws
-* PS-LOGGING:RETRY_EXHAUSTED {nbsp}
-* PS-LOGGING:CONNECTIVITY {nbsp}
-
-
-[[retrieveInfo]]
-=== Retrieve Info
-`<ps-logging:retrieve-info>`
-
-+++
 Example of an operation that uses the configuration and a connection instance to perform some action.
 +++
 
@@ -112,6 +76,15 @@ Example of an operation that uses the configuration and a connection instance to
 |======================
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Host a| String |  |  | *x*{nbsp}
+| Source a| String |  |  | *x*{nbsp}
+| Event Name a| String |  |  | *x*{nbsp}
+| Severity a| String |  |  | *x*{nbsp}
+| Time a| String |  |  | *x*{nbsp}
+| Transaction Id a| String |  |  | *x*{nbsp}
+| Source System a| String |  |  | *x*{nbsp}
+| Target System a| String |  |  | *x*{nbsp}
+| Metas a| String |  |  | *x*{nbsp}
 | Output Mime Type a| String |  +++The mime type of the payload that this operation outputs.+++ |  | {nbsp}
 | Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
 | Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
@@ -131,22 +104,6 @@ Example of an operation that uses the configuration and a connection instance to
 ==== Throws
 * PS-LOGGING:RETRY_EXHAUSTED {nbsp}
 * PS-LOGGING:CONNECTIVITY {nbsp}
-
-
-[[main]]
-=== Main
-`<ps-logging:main>`
-
-
-==== Parameters
-[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
-|======================
-| Name | Type | Description | Default Value | Required
-| Args a| Array of String |  |  | *x*{nbsp}
-|======================
-
-
-
 
 
 
@@ -221,23 +178,5 @@ Example of an operation that uses the configuration and a connection instance to
 ** MINUTES
 ** HOURS
 ** DAYS | A time unit that qualifies the maxIdleTime attribute |  | 
-|======================
-
-[[Logs]]
-=== Logs
-
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
-| Field | Type | Description | Default Value | Required
-| Event_name a| String |  |  | 
-| Host a| String |  |  | 
-| Id a| Number |  |  | 
-| Metas a| String |  |  | 
-| Severity a| String |  |  | 
-| Source a| String |  |  | 
-| Source_system a| String |  |  | 
-| Target_system a| String |  |  | 
-| Time a| String |  |  | 
-| Transaction_id a| String |  |  | 
 |======================
 

@@ -13,6 +13,24 @@ public class Logs {
 	private String target_system;
 	private String metas;
 	
+	
+	
+	
+//	public Logs(int id, String host, String source, String event_name, String severity, String time,
+//			String transaction_id, String source_system, String target_system, String metas) {
+//		super();
+//		this.id = id;
+//		this.host = host;
+//		this.source = source;
+//		this.event_name = event_name;
+//		this.severity = severity;
+//		this.time = time;
+//		this.transaction_id = transaction_id;
+//		this.source_system = source_system;
+//		this.target_system = target_system;
+//		this.metas = metas;
+//	}
+
 	public int getId() {
 		return id;
 	}

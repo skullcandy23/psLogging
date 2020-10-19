@@ -3,127 +3,49 @@ package pslogging.internal.insert;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Calendar;
 
 import pslogging.internal.PSLoggingConnection;
+//import pslogging.internal.PSLoggingConnection;
 import pslogging.internal.PSLoggingConnectionProvider;
 import pslogging.internal.PSLoggingOperations;
 import pslogging.internal.beans.Logs;
 
+
 public class MySQL {
 
+	
 	public PSLoggingConnection psLoggingConnection;
 	public PSLoggingConnectionProvider psLoggingConnectionProvider;
 	public PSLoggingOperations psLoggingOperation;
 	
+	public Logs logs;
 	
-	private String host;
-	private String port;
-	private String user;
-	private String password;
-	private String database;
+	
+//	public String host;
+//	public String port;
+//	public String user;
+//	public String password;
+//	public String database;
 	
 	public static void main(String[] args) {
 		MySQL pro = new MySQL();
-//		pro.getLogs();
 		pro.insertLogs();
 		
 	}
 
-	//Test
-//	public Logs getLogs() {
-//		try {
-//			Class.forName("com.mysql.jdbc.Driver");
-//			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/logging", "root", "root");
-//			
-//			Statement stmt = con.createStatement();
-//			ResultSet rs = stmt.executeQuery("SELECT * FROM logs");
-//			while(rs.next()) {
-//				String host = rs.getString("host");
-//				System.out.println(host);
-//				String source = rs.getString("source");
-//				System.out.println(source);
-//				String event_name = rs.getString("event_name");
-//				System.out.println(event_name);
-//				String severity = rs.getString("severity");
-//				System.out.println(severity);
-//				String time = rs.getString("time");
-//				System.out.println(time);
-//				String transaction_id = rs.getString("transaction_id");
-//				System.out.println(transaction_id);
-//				String source_system = rs.getString("source_system");
-//				System.out.println(source_system);
-//				String target_system = rs.getString("target_system");
-//				System.out.println(target_system);
-//				String metas = rs.getString("metas");
-//				System.out.println(metas);
-//						
-//			}
-//			
-//			
-//			
-//			System.out.println("Database Connection Success");
-//		} catch (ClassNotFoundException ex) {
-//			// TODO Auto-generated catch block
-//			Logger.getLogger(MySQL.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (SQLException ex) {
-//			// TODO Auto-generated catch block
-//			Logger.getLogger(MySQL.class.getName()).log(Level.SEVERE, null, ex);
-//		}
-//		return null;
-//	}
+
 	
-////	//Test
-//		public Logs getLogs() {
-//			try {
-//				Class.forName("com.mysql.jdbc.Driver");
-//				Connection con = DriverManager.getConnection("jdbc:mysql://"+ psLoggingConnectionProvider.getHost() + ":" + psLoggingConnectionProvider.getPort() + "/" + psLoggingConnectionProvider.getDatabase(), psLoggingConnectionProvider.getUser(), psLoggingConnectionProvider.getPassword());
-//				
-//				Statement stmt = con.createStatement();
-//				ResultSet rs = stmt.executeQuery("SELECT * FROM logs");
-//				while(rs.next()) {
-//					String host = rs.getString("host");
-//					System.out.println(host);
-//					String source = rs.getString("source");
-//					System.out.println(source);
-//					String event_name = rs.getString("event_name");
-//					System.out.println(event_name);
-//					String severity = rs.getString("severity");
-//					System.out.println(severity);
-//					String time = rs.getString("time");
-//					System.out.println(time);
-//					String transaction_id = rs.getString("transaction_id");
-//					System.out.println(transaction_id);
-//					String source_system = rs.getString("source_system");
-//					System.out.println(source_system);
-//					String target_system = rs.getString("target_system");
-//					System.out.println(target_system);
-//					String metas = rs.getString("metas");
-//					System.out.println(metas);
-//							
-//				}
-//				
-//				
-//				
-//				System.out.println("Database Connection Success");
-//			} catch (ClassNotFoundException ex) {
-//				// TODO Auto-generated catch block
-//				Logger.getLogger(MySQL.class.getName()).log(Level.SEVERE, null, ex);
-//			} catch (SQLException ex) {
-//				// TODO Auto-generated catch block
-//				Logger.getLogger(MySQL.class.getName()).log(Level.SEVERE, null, ex);
-//			}
-//			return null;
-//		}
-//	
 	
-	public Connection connect() throws SQLException {
+	public  Connection connect() throws SQLException {
 //		Connection con = DriverManager.getConnection("jdbc:mysql://"+ psLoggingConnection.getHost() + ":" + psLoggingConnection.getPort() + "/" + psLoggingConnection.getDatabase(), psLoggingConnection.getUser(), psLoggingConnection.getPassword());
+//		Connection con = DriverManager.getConnection("jdbc:mysql://"+ connection.getHost() + ":" + connection.getPort() + "/" + connection.getDatabase(), connection.getUser(), connection.getPassword());
+		
+//		System.out.print("jdbc:mysql://"+ psLoggingConnection.getHost() + ":" + psLoggingConnection.getPort() + "/" + psLoggingConnection.getDatabase() + ","  +  psLoggingConnection.getUser() + "," + psLoggingConnection.getPassword());
+//		System.out.print("jdbc:mysql://"+ psLoggingConnectionProvider.getHost() + ":" + psLoggingConnectionProvider.getPort() + "/" + psLoggingConnectionProvider.getDatabase() + ","  +  psLoggingConnectionProvider.getUser() + "," + psLoggingConnectionProvider.getPassword());
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/logging", "root", "root");
 
 		
@@ -171,12 +93,23 @@ public class MySQL {
 		
 	}
 		
-	
-	
-//	public Logs insertLogs() {
+//	public  Connection connectt() throws SQLException {
+//		Connection con = DriverManager.getConnection("jdbc:mysql://"+ psLoggingConnection.getHost() + ":" + psLoggingConnection.getPort() + "/" + psLoggingConnection.getDatabase(), psLoggingConnection.getUser(), psLoggingConnection.getPassword());
+////		Connection con = DriverManager.getConnection("jdbc:mysql://"+ psLoggingconnection.getHost() + ":" + psLoggingOperation.connection.getPort() + "/" + psLoggingOperation.connection.getDatabase(), psLoggingOperation.connection.getUser(), psLoggingOperation.connection.getPassword());
+//		
+////		System.out.print("jdbc:mysql://"+ psLoggingConnection.getHost() + ":" + psLoggingConnection.getPort() + "/" + psLoggingConnection.getDatabase() + ","  +  psLoggingConnection.getUser() + "," + psLoggingConnection.getPassword());
+////		System.out.print("jdbc:mysql://"+ psLoggingConnectionProvider.getHost() + ":" + psLoggingConnectionProvider.getPort() + "/" + psLoggingConnectionProvider.getDatabase() + ","  +  psLoggingConnectionProvider.getUser() + "," + psLoggingConnectionProvider.getPassword());
+////		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/logging", "root", "root");
+//
+//		
+//		return con;
+//	}
+//	
+//	public void insertLogss() {
 //		try {
 //			Class.forName("com.mysql.jdbc.Driver");
-//			Connection con = DriverManager.getConnection("jdbc:mysql://"+ psLoggingConnection.getHost() + ":" + psLoggingConnection.getPort() + "/" + psLoggingConnection.getDatabase(), psLoggingConnection.getUser(), psLoggingConnection.getPassword());
+////			Connection con = DriverManager.getConnection("jdbc:mysql://"+ psLoggingConnection.getHost() + ":" + psLoggingConnection.getPort() + "/" + psLoggingConnection.getDatabase(), psLoggingConnection.getUser(), psLoggingConnection.getPassword());
+//			Connection con = connectt();
 //			
 //			Calendar calendar = Calendar.getInstance();
 //			java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
@@ -186,15 +119,15 @@ public class MySQL {
 //			
 //			
 //			PreparedStatement preparedStmt = con.prepareStatement(query);
-//			preparedStmt.setString(1, psLoggingOperation.logs.getHost());
-//			preparedStmt.setString(2, psLoggingOperation.logs.getSource());
-//			preparedStmt.setString(3, psLoggingOperation.logs.getEvent_name());
-//			preparedStmt.setString(4, psLoggingOperation.logs.getSeverity());
+//			preparedStmt.setString(1, logs.getHost());
+//			preparedStmt.setString(2, logs.getSource());
+//			preparedStmt.setString(3, logs.getEvent_name());
+//			preparedStmt.setString(4, logs.getSeverity());
 //			preparedStmt.setDate(5, startDate);
-//			preparedStmt.setString(6, psLoggingOperation.logs.getTransaction_id());
-//			preparedStmt.setString(7, psLoggingOperation.logs.getSource_system());
-//			preparedStmt.setString(8, psLoggingOperation.logs.getTarget_system());
-//			preparedStmt.setString(9, psLoggingOperation.logs.getMetas());
+//			preparedStmt.setString(6, logs.getTransaction_id());
+//			preparedStmt.setString(7, logs.getSource_system());
+//			preparedStmt.setString(8, logs.getTarget_system());
+//			preparedStmt.setString(9, logs.getMetas());
 //			
 //			preparedStmt.execute();
 //			
@@ -208,7 +141,7 @@ public class MySQL {
 //			// TODO Auto-generated catch block
 //			Logger.getLogger(MySQL.class.getName()).log(Level.SEVERE, null, ex);
 //		}
-//		return null;
+//		
 //	}
 	
 //	public insertLog() {

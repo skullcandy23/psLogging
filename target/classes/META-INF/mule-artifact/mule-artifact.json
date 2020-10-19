@@ -3,7 +3,7 @@
     "id": "java",
     "attributes": {
       "type": "pslogging.internal.PSLoggingExtension",
-      "version": "1.0.8"
+      "version": "1.0.16"
     }
   },
   "name": "Ps-logging-",
@@ -14,8 +14,7 @@
       "privilegedExportedPackages": [],
       "privilegedArtifactIds": [],
       "exportedPackages": [
-        "pslogging.internal.utils",
-        "pslogging.internal.beans"
+        "pslogging.internal.utils"
       ],
       "exportedResources": []
     }
