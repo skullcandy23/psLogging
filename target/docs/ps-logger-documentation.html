@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
-<title>Ps-logging- Module Documentation Reference</title>
+<title>PS-Logger Module Documentation Reference</title>
 <style>
 /**
  * (c) 2003-2015 MuleSoft, Inc. This software is protected under international copyright
@@ -2065,9 +2065,9 @@ table.CodeRay td.code>pre{padding:0}
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Ps-logging- Module Documentation Reference</h1>
+<h1>PS-Logger Module Documentation Reference</h1>
 <div id="toc" class="toc2">
-<div id="toctitle">Ps-logging- Module</div>
+<div id="toctitle">PS-Logger Module</div>
 <ul class="sectlevel1">
 <li><a href="#_configurations">Configurations</a>
 <ul class="sectlevel2">
@@ -2076,8 +2076,7 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#_operations">Operations</a>
 <ul class="sectlevel2">
-<li><a href="#logg">Logg</a></li>
-<li><a href="#logging">Logging</a></li>
+<li><a href="#Logger">Logger</a></li>
 </ul>
 </li>
 <li><a href="#_types">Types</a>
@@ -2093,15 +2092,6 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>
-This is the main class of an extension, is the entry point from which configurations, connection providers, operations and sources are going to be declared.
-</p>
-</div>
-</div>
-</div>
 <div class="sect1">
 <h2 id="_configurations">Configurations</h2>
 <div class="sectionbody">
@@ -2208,7 +2198,7 @@ Default configuration
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Service Host</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">MySQL Host</p></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>String</p>
 </div></div></td>
@@ -2217,7 +2207,7 @@ Default configuration
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Service Port</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">MySQL Port</p></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>String</p>
 </div></div></td>
@@ -2226,7 +2216,7 @@ Default configuration
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Username</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">MySQL Username</p></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>String</p>
 </div></div></td>
@@ -2235,7 +2225,7 @@ Default configuration
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Password</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">MySQL Password</p></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>String</p>
 </div></div></td>
@@ -2244,7 +2234,7 @@ Default configuration
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Database</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">MySQL Database Name</p></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>String</p>
 </div></div></td>
@@ -2280,10 +2270,7 @@ Default configuration
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#logg">Logg</a> &#160;</p>
-</li>
-<li>
-<p><a href="#logging">Logging</a> &#160;</p>
+<p><a href="#Logger">Logger</a> &#160;</p>
 </li>
 </ul>
 </div>
@@ -2295,14 +2282,9 @@ Default configuration
 <h2 id="_operations">Operations</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="logg">Logg</h3>
+<h3 id="Logger">Logger</h3>
 <div class="paragraph">
-<p><code>&lt;ps-logging:logg&gt;</code></p>
-</div>
-<div class="paragraph">
-<p>
-Example of an operation that uses the configuration and a connection instance to perform some action.
-</p>
+<p><code>&lt;PS-Logger:logger&gt;</code></p>
 </div>
 <div class="sect3">
 <h4 id="_parameters_3">Parameters</h4>
@@ -2332,7 +2314,7 @@ Example of an operation that uses the configuration and a connection instance to
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Database Host</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Host</p></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>String</p>
 </div></div></td>
@@ -2361,7 +2343,23 @@ Example of an operation that uses the configuration and a connection instance to
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Severity</p></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>String</p>
+<p>Enumeration, one of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>DEBUG</p>
+</li>
+<li>
+<p>INFO</p>
+</li>
+<li>
+<p>ERROR</p>
+</li>
+<li>
+<p>WARN</p>
+</li>
+</ul>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"></td>
 <td class="tableblock halign-left valign-middle"></td>
@@ -2490,210 +2488,10 @@ Example of an operation that uses the configuration and a connection instance to
 <div class="ulist">
 <ul>
 <li>
-<p>PS-LOGGING:RETRY_EXHAUSTED &#160;</p>
+<p>PS-LOGGER:RETRY_EXHAUSTED &#160;</p>
 </li>
 <li>
-<p>PS-LOGGING:CONNECTIVITY &#160;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="logging">Logging</h3>
-<div class="paragraph">
-<p><code>&lt;ps-logging:logging&gt;</code></p>
-</div>
-<div class="sect3">
-<h4 id="_parameters_4">Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 35%;">
-<col style="width: 20%;">
-<col style="width: 5%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Default Value</th>
-<th class="tableblock halign-center valign-middle">Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Configuration</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The name of the configuration to use.</p></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Host</p></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>String</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Source</p></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>String</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Event Name</p></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>String</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Severity</p></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>String</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Time</p></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>String</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Transaction Id</p></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>String</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Source System</p></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>String</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Target System</p></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>String</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Metas</p></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>String</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Output Mime Type</p></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>String</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The mime type of the payload that this operation outputs.</p></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">&#160;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Target Variable</p></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>String</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The name of a variable on which the operation's output will be placed</p></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">&#160;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Target Value</p></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>String</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">#[payload]</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">&#160;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Reconnection Strategy</p></td>
-<td class="tableblock halign-left valign-middle"><div><div class="ulist">
-<ul>
-<li>
-<p><a href="#reconnect">Reconnect</a></p>
-</li>
-<li>
-<p><a href="#reconnect-forever">Reconnect Forever</a></p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">A retry strategy in case of connectivity errors</p></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">&#160;</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_output_2">Output</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Type</strong></p></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>String</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_for_configurations_2">For Configurations.</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#config">Config</a> &#160;</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_throws_2">Throws</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>PS-LOGGING:RETRY_EXHAUSTED &#160;</p>
-</li>
-<li>
-<p>PS-LOGGING:CONNECTIVITY &#160;</p>
+<p>PS-LOGGER:CONNECTIVITY &#160;</p>
 </li>
 </ul>
 </div>

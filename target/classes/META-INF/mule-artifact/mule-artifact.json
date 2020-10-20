@@ -3,10 +3,10 @@
     "id": "java",
     "attributes": {
       "type": "pslogging.internal.PSLoggingExtension",
-      "version": "1.0.18"
+      "version": "1.0.40"
     }
   },
-  "name": "Ps-logging-",
+  "name": "PS-Logger",
   "requiredProduct": "MULE",
   "classLoaderModelLoaderDescriptor": {
     "id": "mule",
