@@ -1,5 +1,14 @@
 package pslogging.internal;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import pslogging.internal.insert.MySQL;
 
 /**
  * This class represents an extension connection just as example (there is no real connection with anything here c:).
@@ -62,7 +71,61 @@ public final class PSLoggingConnection {
 		
 	  }
 
-  
+	  public  Connection connect(String host, String port, String user, String password, String database) throws SQLException {
+//			Connection con = DriverManager.getConnection("jdbc:mysql://"+ psLoggingConnection.getHost() + ":" + psLoggingConnection.getPort() + "/" + psLoggingConnection.getDatabase(), psLoggingConnection.getUser(), psLoggingConnection.getPassword());
+//			Connection con = DriverManager.getConnection("jdbc:mysql://"+ connection.getHost() + ":" + connection.getPort() + "/" + connection.getDatabase(), connection.getUser(), connection.getPassword());
+			
+//			System.out.print("jdbc:mysql://"+ psLoggingConnection.getHost() + ":" + psLoggingConnection.getPort() + "/" + psLoggingConnection.getDatabase() + ","  +  psLoggingConnection.getUser() + "," + psLoggingConnection.getPassword());
+//			System.out.print("jdbc:mysql://"+ psLoggingConnectionProvider.getHost() + ":" + psLoggingConnectionProvider.getPort() + "/" + psLoggingConnectionProvider.getDatabase() + ","  +  psLoggingConnectionProvider.getUser() + "," + psLoggingConnectionProvider.getPassword());
+//			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/logging", "root", "root");
+			
+			Connection con = DriverManager.getConnection("jdbc:mysql://"+ host + ":" + port + "/" + database, user, password);
+			
+			return con;
+		}
+	  
+		public void insertLogs(String host, String port, String user, String password, String database,
+				String databaseHost, String source, String eventName, String severity, String time, String transactionId, String sourceSystem, String targetSystem, String metas) {
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+//				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/logging", "root", "root");
+				
+				Connection con = connect(host, port, user, password, database);
+				
+				Calendar calendar = Calendar.getInstance();
+				java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
+				
+				
+				String query = "insert into logs (host, source, event_name, severity, time, transaction_id, source_system, target_system, metas) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+				
+				
+				PreparedStatement preparedStmt = con.prepareStatement(query);
+				preparedStmt.setString(1, databaseHost);
+				preparedStmt.setString(2, source);
+				preparedStmt.setString(3, eventName);
+				preparedStmt.setString(4, severity);
+				preparedStmt.setDate(5, startDate);
+				preparedStmt.setString(6, transactionId);
+				preparedStmt.setString(7, sourceSystem);
+				preparedStmt.setString(8, targetSystem);
+				preparedStmt.setString(9, metas);
+				
+				preparedStmt.execute();
+				
+				con.close();
+				
+				System.out.println("Database Insert Success");
+			} catch (ClassNotFoundException ex) {
+				// TODO Auto-generated catch block
+				Logger.getLogger(MySQL.class.getName()).log(Level.SEVERE, null, ex);
+			} catch (SQLException ex) {
+				// TODO Auto-generated catch block
+				Logger.getLogger(MySQL.class.getName()).log(Level.SEVERE, null, ex);
+			}
+			
+		}
+	  
+	  
 	  public void invalidate() {
 	    // do something to invalidate this connection!
 	  }

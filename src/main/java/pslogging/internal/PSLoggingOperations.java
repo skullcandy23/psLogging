@@ -26,8 +26,10 @@ public class PSLoggingOperations {
 
   public Logs logs;
   
-//  public PSLoggingConnection connection;
+  public PSLoggingConnection psLoggingConnection;
 
+  
+  
   MySQL my = new MySQL();
   
 
@@ -59,6 +61,20 @@ public class PSLoggingOperations {
 //  				+ " Severity: " + logs.getSeverity() + " Time: " + logs.getTime() + " Transactiond Id: " + logs.getTransaction_id() + 
 //  				" Source System: " + logs.getSource_system() + " Target System: " + logs.getTarget_system() + " Metas: " + logs.getMetas(); 
 //  	}
+  	
+  	//Log por el usuario con instancia de métodos
+  	@MediaType(value = ANY, strict = false)
+  	public String logg(@Config PSLoggingConfiguration configuration, @Connection PSLoggingConnection connection, 
+  			String databaseHost, String source, String eventName, String severity, String time, String transactionId, String sourceSystem, String targetSystem, String metas) {
+  		
+  		PSLoggingConnection psLoggingConnectionn = new PSLoggingConnection(connection.getHost(), connection.getPort(), connection.getUser(), connection.getPassword(), connection.getDatabase());
+  				
+  		
+  		psLoggingConnectionn.insertLogs(connection.getHost(), connection.getPort(), connection.getUser(), connection.getPassword(), connection.getDatabase(), 
+  				databaseHost, source, eventName, severity, time, transactionId, sourceSystem, targetSystem, metas);
+  		return buildLogMessage(databaseHost, source, eventName, severity, 
+  	  			time, transactionId, sourceSystem, targetSystem, metas); 
+  	}
   	
   	//Log por usuario sin instancia de métodos
   	@MediaType(value = ANY, strict = false)
@@ -110,5 +126,11 @@ public class PSLoggingOperations {
   				" Source System: " + sourceSystem + " Target System: " + targetSystem + " Metas: " + metas;
   	}
   
+//  	private String buildLogMessages(String databaseHost, String source, String eventName, String severity, 
+//  			String time, String transactionId, String sourceSystem, String targetSystem, String metas) {
+//  		return " Host: " + databaseHost + " Source: " + source + " Event Name: " +  eventName 
+//  				+ " Severity: " + severity + " Time: " + time + " Transactiond Id: " + transactionId + 
+//  				" Source System: " + sourceSystem + " Target System: " + targetSystem + " Metas: " + metas;
+//  	}
   	
 }
